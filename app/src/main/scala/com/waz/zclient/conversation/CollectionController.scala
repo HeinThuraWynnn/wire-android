@@ -123,6 +123,7 @@ class StubCollectionController extends ICollectionsController{
 object CollectionController {
 
   val GridColumns = 4
+  val Manifest = manifest[CollectionController]
 
   trait ContentType {
     val msgTypes: Seq[Message.Type]

@@ -21,6 +21,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.view.View;
 
+import com.waz.zclient.Injectable;
 import com.waz.zclient.WireContext;
 import com.waz.zclient.controllers.accentcolor.AccentColorController;
 import com.waz.zclient.controllers.accentcolor.IAccentColorController;
@@ -90,6 +91,8 @@ import com.waz.zclient.pages.main.pickuser.controller.IPickUserController;
 import com.waz.zclient.pages.main.pickuser.controller.PickUserController;
 import java.lang.IllegalStateException;
 import java.lang.Override;
+
+import scala.reflect.Manifest;
 
 public abstract class Base$$ControllerFactory implements IControllerFactory {
   protected IAccentColorController accentColorController;
@@ -633,7 +636,7 @@ public abstract class Base$$ControllerFactory implements IControllerFactory {
     public ICollectionsController getCollectionsController() {
         verifyLifecycle();
         if (collectionsController == null) {
-            collectionsController = new CollectionController(((WireContext) this.context).injector());
+            collectionsController = ((Injectable) this.context).inject(CollectionController.Manifest(), ((WireContext) this.context).injector());
         }
         return collectionsController;
     }

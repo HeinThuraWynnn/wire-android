@@ -35,10 +35,9 @@ import com.waz.zclient.{FragmentHelper, OnBackPressedListener, R}
 
 class SingleImageCollectionFragment extends BaseFragment[CollectionFragment.Container] with FragmentHelper with OnBackPressedListener {
 
-  lazy val collectionController = getControllerFactory.getCollectionsController
-
   lazy val zms = inject[Signal[ZMessaging]]
   lazy val messageActions = inject[MessageActionsController]
+  lazy val collectionController = inject[CollectionController]
 
   lazy val messageAndLikes = zms.zip(collectionController.focusedItem).flatMap{
     case (z, Some(md)) => Signal.future(z.msgAndLikes.combineWithLikes(md))
@@ -51,8 +50,6 @@ class SingleImageCollectionFragment extends BaseFragment[CollectionFragment.Cont
     messageAndLikes.disableAutowiring()
     imageView.setOnLongClickListener(new OnLongClickListener {
       override def onLongClick(v: View): Boolean = {
-        getView.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS)
-        messageAndLikes.currentValue.exists(messageActions.showDialog)
         true
       }
     })

@@ -165,6 +165,7 @@
         <!-- Collection -->
         <item name="wireBackgroundCollection">@color/collection_background_dark</item>
         <item name="collectionToolbar">@style/collection_toolbar__dark</item>
+        <item name="lowerCollectionToolbar">@drawable/lower_toolbar_collection_background__dark</item>
 
     </style>
 
@@ -311,6 +312,7 @@
         <!-- Collection -->
         <item name="wireBackgroundCollection">@color/collection_background_light</item>
         <item name="collectionToolbar">@style/collection_toolbar__light</item>
+        <item name="lowerCollectionToolbar">@drawable/lower_toolbar_collection_background__light</item>
 
     </style>
 

@@ -45,7 +45,7 @@ class CollectionFragment extends BaseFragment[CollectionFragment.Container] with
 
   private implicit val tag: LogTag = logTagFor[CollectionFragment]
 
-  lazy val controller = getControllerFactory.getCollectionsController
+  lazy val controller = inject[CollectionController]
   var adapter: CollectionAdapter = null
 
 

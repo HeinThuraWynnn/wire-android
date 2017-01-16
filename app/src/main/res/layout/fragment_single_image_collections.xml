@@ -29,7 +29,13 @@
     <com.waz.zclient.views.images.TouchImageView
         android:id="@+id/tiv__image_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:scaleType="fitCenter"/>
+
+
+    <com.waz.zclient.views.SingleImageViewToolbar
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/collections__header_height"/>
 
 </LinearLayout>
